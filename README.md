@@ -15,10 +15,11 @@ RPI-HAT-Pico-BreakoutBoard
 树莓派Pico扩展板是MuseLab推出的方便用户使用Pico的扩展板，扩展板引出Pico所有GPIO，同时和树莓派提供的SWD下载接口、串口对接，利用树莓派提供的编译烧录调试环境，可以方便的对Pico进行烧录测试  
 ![top](https://github.com/wuxx/RPI-HAT-Pico-BreakoutBoard/blob/master/doc/top.jpg)
 # 特性   
-1. 扩展板两侧引出所有GPIO  
-2. 串口，可通过拨码开关旁路  
-3. SWD下载调试接口  
-4. 复位按钮  
+- 扩展板两侧引出所有GPIO  
+- 串口，可通过拨码开关旁路  
+- SWD下载调试接口  
+- 复位按钮，用于复位Pico
+- 扩展板兼容树莓派3/树莓派4  
 
 # 使用说明
 ### 串口
@@ -29,7 +30,12 @@ GND | GND
 GPIO15/RXD | GP0/UART0_TX
 GPIO14/TXD | GP1/UART0_RX
 
-树莓派侧可使用minicom或者picocom串口工具打开串口进行调试，举例如下：
+树莓派上需要输入以下命令以启动硬件串口功能  
+```
+$sudo raspi-config
+```
+进入菜单 `Interfacing Options -> Serial`，先选择`No`，回车，然后选择`Yes`，保存退出即可。
+启用串口后，可使用minicom或者picocom串口工具打开串口进行调试，举例如下：
 ```
 $sudo apt install minicom
 $minicom -b 115200 -o -D /dev/serial0
