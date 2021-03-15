@@ -12,7 +12,7 @@ RPI-HAT-Pico-BreakoutBoard
 
 
 # 树莓派Pico扩展板介绍 
-树莓派Pico扩展板是MuseLab推出的方便用户使用Pico的扩展板，扩展板引出Pico所有GPIO，同时和树莓派提供的SWD下载接口、串口对接，利用树莓派提供的编译烧录调试环境，可以方便的对Pico进行烧录测试  
+树莓派Pico扩展板是MuseLab推出的方便用户使用Pico的扩展板，扩展板引出Pico所有GPIO，同时和树莓派提供的SWD下载接口、串口对接，利用树莓派提供的编译烧录调试环境，可以方便的对Pico进行开发测试  
 ![top](https://github.com/wuxx/RPI-HAT-Pico-BreakoutBoard/blob/master/doc/top.jpg)
 # 特性   
 - 扩展板两侧引出所有GPIO  
