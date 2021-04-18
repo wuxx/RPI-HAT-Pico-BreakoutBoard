@@ -1,41 +1,41 @@
-RPI-HAT-Pico-BreakoutBoard
+PI-HAT-Pico-BreakoutBoard
 -----------
-[中文](./README.md) [English](./README_en.md)
+[中文](./README_en.md) [English](./README.md)
 
-* [介绍](#树莓派pico扩展板介绍) 
-* [特性](#特性)
-* [使用说明](#使用说明)
-	* [串口](#串口)
-	* [SWD下载](#swd下载)
-* [产品链接](#产品链接)
-* [参考](#参考)
+* [Introduction](#rpi-hat-pico-breakoutboard) 
+* [Feature](#feature)
+* [How to Use](#how-to-use)
+	* [Serial](#serial)
+	* [SWD](#swd)
+* [Product Link](#product-link)
+* [Reference](#reference)
 
 
-# 树莓派Pico扩展板介绍 
-树莓派Pico扩展板是MuseLab推出的方便用户使用Pico的扩展板，扩展板引出Pico所有GPIO，同时和树莓派提供的SWD下载接口、串口对接，利用树莓派提供的编译烧录调试环境，可以方便的对Pico进行开发测试  
-![top](https://github.com/wuxx/RPI-HAT-Pico-BreakoutBoard/blob/master/doc/top.jpg)
-# 特性   
-- 扩展板两侧引出所有GPIO  
-- 串口，可通过拨码开关旁路  
-- SWD下载调试接口  
-- 复位按钮，用于复位Pico
-- 扩展板兼容树莓派3/树莓派4  
+# RPI-HAT-Pico-BreakoutBoard
+Pico-BreakoutBoard is a user-friendly expansion board for Pico launched by MuseLab. The BreakoutBoard act as a raspberrypi hat, leads all GPIOs of Pico, and the pico is connected with SWD download interface and serial port provided by raspberrypi, which can be easily used for program & test of Pico.
 
-# 使用说明
-### 串口
-树莓派的串口和Pico接线说明如下
-树莓派 | Pico
+<div align=center>
+<img src="https://github.com/wuxx/rpi-hat-pico-breakoutboard/blob/main/doc/1.jpg" width = "400" alt="" align=center />
+<img src="https://github.com/wuxx/rpi-hat-pico-breakoutboard/blob/main/doc/2.jpg" width = "400" alt="" align=center />
+<img src="https://github.com/wuxx/rpi-hat-pico-breakoutboard/blob/main/doc/3.jpg" width = "400" alt="" align=center />
+</div>
+
+
+# Feature
+- All GPIOs
+- Serial
+- SWD
+- Reset
+
+# How to Use
+### Serial
+raspberrypi | Pico
 ---|---
 GND | GND
 GPIO15/RXD | GP0/UART0_TX
 GPIO14/TXD | GP1/UART0_RX
 
-树莓派上需要输入以下命令以启动硬件串口功能  
-```
-$sudo raspi-config
-```
-进入菜单 `Interfacing Options -> Serial`，先选择`No`，回车，然后选择`Yes`，保存退出即可。
-启用串口后，可使用minicom或者picocom串口工具打开串口进行调试，举例如下：
+on raspberrypi, you can use the minicom or picocom to open the serial port, for example：
 ```
 $sudo apt install minicom
 $minicom -b 115200 -o -D /dev/serial0
@@ -44,12 +44,12 @@ $sudo apt install picocom
 $picocom -b 115200 /dev/serial0
 
 ```
-更详细的说明，请参考getting-started-with-pico 4.5小节。
+more details please reference getting-started-with-pico section 4.5
 
 
-### SWD下载
-Pico的onchiprom程序实现了一个U盘拖拽烧录的功能，可以通过拖拽uf2文件到虚拟U盘中实现烧录，然而在某些开发场景下，若需要频繁修改代码烧录测试，则需要反复将Pico下电，按住按键再重新上电，等待USB枚举完成，才能进行拖拽烧录，过程略微有些繁琐。 实际上可以通过Pico的SWD接口实现烧录调试，配合openocd开源调试软件，无需重新对Pico上下电，只需输入一条命令即可完成烧录，具体过程说明如下
-1. 安装openocd
+### SWD
+Pico's onchiprom program implements a USB disk with drag-and-drop burning function, However, in some development scenarios, if you need to frequently modify the code and test, you need to repeatedly power down Pico, hold down the button and power up again, and wait for the USB enumeration to complete before you can drag and drop, which is a slightly tedious process. In fact, the Pico can be programmed & debugged through the SWD interface with the openocd, no need to re-power the Pico, just enter a command to complete, the detail is described as follows
+1. install openocd
 ```
 $ cd ~/pico
 $ sudo apt install automake autoconf build-essential texinfo libtool libftdi-dev libusb-1.0-0-
@@ -61,19 +61,20 @@ $ ./configure --enable-ftdi --enable-sysfsgpio --enable-bcm2835gpio
 $ make -j4
 $ sudo make install
 ```
-2. 本仓库已经封装好相应的脚本，导入环境变量之后即可在任意路径下调用烧录目标文件，注意烧录的格式后缀为`hex`或者`bin`，而非拖拽烧录的`uf2`文件。  
+
+2. This repository has wrapped the command into scripts, after importing the environments variables, you can call the script in any path, note that the format of the burn suffix is hex or bin, not the drag and drop uf2 file
 ```
 $cd RPI-HAT-Pico-BreakoutBoard/tools
 $source env.sh
 $rfw xxx.hex/xxx.bin
 ```
 
-更详细的说明，请参考getting-started-with-pico 第5章节。
+more details please reference getting-started-with-pico section 5
 
-# 产品链接
+# Product Link
 [RPI-HAT-Pico-BreakoutBoard](https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w4004-21349689053.18.305e20f8cSEvqA&id=614093598737)
 
-# 参考
+# Reference
 ### pico-sdk
 https://github.com/raspberrypi/pico-sdk
 ### pico-examples
