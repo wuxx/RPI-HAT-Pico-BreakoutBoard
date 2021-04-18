@@ -1,6 +1,6 @@
 PI-HAT-Pico-BreakoutBoard
 -----------
-[中文](./README_en.md) [English](./README.md)
+[中文](./README_cn.md) [English](./README.md)
 
 * [Introduction](#rpi-hat-pico-breakoutboard) 
 * [Feature](#feature)
@@ -15,9 +15,9 @@ PI-HAT-Pico-BreakoutBoard
 Pico-BreakoutBoard is a user-friendly expansion board for Pico launched by MuseLab. The BreakoutBoard act as a raspberrypi hat, leads all GPIOs of Pico, and the pico is connected with SWD download interface and serial port provided by raspberrypi, which can be easily used for program & test of Pico.
 
 <div align=center>
-<img src="https://github.com/wuxx/rpi-hat-pico-breakoutboard/blob/main/doc/1.jpg" width = "400" alt="" align=center />
-<img src="https://github.com/wuxx/rpi-hat-pico-breakoutboard/blob/main/doc/2.jpg" width = "400" alt="" align=center />
-<img src="https://github.com/wuxx/rpi-hat-pico-breakoutboard/blob/main/doc/3.jpg" width = "400" alt="" align=center />
+<img src="https://github.com/wuxx/RPI-HAT-Pico-BreakoutBoard/blob/master/doc/1.jpg" width = "500" alt="" align=center />
+<img src="https://github.com/wuxx/rpi-hat-pico-breakoutboard/blob/master/doc/2.jpg" width = "500" alt="" align=center />
+<img src="https://github.com/wuxx/rpi-hat-pico-breakoutboard/blob/master/doc/3.jpg" width = "500" alt="" align=center />
 </div>
 
 
@@ -62,7 +62,7 @@ $ make -j4
 $ sudo make install
 ```
 
-2. This repository has wrapped the command into scripts, after importing the environments variables, you can call the script in any path, note that the format of the burn suffix is hex or bin, not the drag and drop uf2 file
+2. This repository has wrapped the command into scripts, after export the environments variables, you can call the script in any path, note that the format of the burn suffix is hex or bin, not the drag and drop uf2 file
 ```
 $cd RPI-HAT-Pico-BreakoutBoard/tools
 $source env.sh
@@ -72,7 +72,7 @@ $rfw xxx.hex/xxx.bin
 more details please reference getting-started-with-pico section 5
 
 # Product Link
-[RPI-HAT-Pico-BreakoutBoard](https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w4004-21349689053.18.305e20f8cSEvqA&id=614093598737)
+[RPI-HAT-Pico-BreakoutBoard](https://www.aliexpress.com/item/1005002510961508.html?spm=2114.12010615.8148356.3.617667e7l3GCeX)
 
 # Reference
 ### pico-sdk
